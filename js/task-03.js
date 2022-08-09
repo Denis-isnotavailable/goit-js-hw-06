@@ -12,3 +12,15 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const createImages = images.map(({ url, alt }) => {
+  const itemEl = document.createElement('li');
+  itemEl.classList.add('gallary__item--t3');
+
+  const imgEl = `<img src="${url}" alt="${alt}" width ="300" height = "180" class ="gallary__image--t3">`;
+  itemEl.insertAdjacentHTML("beforeend", imgEl);
+
+  return itemEl;
+});
+
+document.querySelector('.gallery').append(...createImages);
