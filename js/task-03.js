@@ -23,4 +23,21 @@ const createImages = images.map(({ url, alt }) => {
   return itemEl;
 });
 
-document.querySelector('.gallery').append(...createImages);
+
+const gallaryEl = document.querySelector('.gallery');
+gallaryEl.append(...createImages);
+
+gallaryEl.style.margin = 0;
+gallaryEl.style.padding = 0;
+gallaryEl.style.listStyle = 'none';
+gallaryEl.style.display = 'grid';
+gallaryEl.style.gridTemplateColumns = 'repeat(3, calc((100% - 20px) / 3))';
+gallaryEl.style.gridTemplateRows = 'repeat(3, 180px)';
+gallaryEl.style.gap = '10px';
+
+for (let i = 0; i < createImages.length; i += 1) {
+  const counter = createImages.length - i;
+
+  createImages[i].style.gridColumn = `${i + 1} / ${createImages.length}`;
+  createImages[i].style.gridRow = `${counter} / ${createImages.length}`;  
+}
