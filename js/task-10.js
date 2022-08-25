@@ -24,7 +24,8 @@ createBtnEl.addEventListener('click', createElementsCollection);
 destroyBtnEl.addEventListener('click', rubElementsCollection);
 
 
-function createElementsCollection(event) {  
+function createElementsCollection(event) { 
+  boxesEl.innerHTML = '';
   boxesEl.append(...createBoxes(inputEl.value));
 }
 
